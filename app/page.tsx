@@ -115,10 +115,20 @@ export default function Page() {
       setError("Fill in everything on this one before you move on.");
       return;
     }
-    setStep((s) => Math.min(s + 1, TOTAL_STEPS));
+    setStep((s) => {
+      let ns = s + 1;
+      if (ns === 4 && form.isStudent === "No") ns = 5; // Studies step doesn't apply
+      return Math.min(ns, TOTAL_STEPS);
+    });
   };
 
-  const back = () => setStep((s) => Math.max(s - 1, 1));
+  const back = () => {
+    setStep((s) => {
+      let ps = s - 1;
+      if (ps === 4 && form.isStudent === "No") ps = 3; // Studies step doesn't apply
+      return Math.max(ps, 1);
+    });
+  };
 
   const submit = async () => {
     setSubmitting(true);
@@ -285,6 +295,8 @@ export default function Page() {
                       isStudent: v as "Yes" | "No",
                       level: v === "No" ? undefined : form.level,
                       levelOther: v === "No" ? undefined : form.levelOther,
+                      courseOfStudy: v === "No" ? undefined : form.courseOfStudy,
+                      institution: v === "No" ? undefined : form.institution,
                     })
                   }
                 />
@@ -558,8 +570,12 @@ function Review({ form }: { form: FormState }) {
     ["Age", form.age],
     ["Student?", form.isStudent],
     ["Level", form.level === "Other" ? form.levelOther : form.level],
-    ["Course of study", form.courseOfStudy],
-    ["Institution", form.institution],
+    ...(form.isStudent === "Yes"
+      ? ([
+          ["Course of study", form.courseOfStudy],
+          ["Institution", form.institution],
+        ] as [string, string | undefined][])
+      : []),
     ["Coming with someone?", form.comingWithSomeone],
     ["Number of companions", form.companionCount],
     ["How you heard", form.howHeard === "Other" ? form.howHeardOther : form.howHeard],

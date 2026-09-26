@@ -16,8 +16,8 @@ export interface RsvpPayload {
     | "Postgraduate"
     | "Other";
   levelOther?: string;
-  courseOfStudy: string;
-  institution: string;
+  courseOfStudy?: string;
+  institution?: string;
   comingWithSomeone: "Yes" | "No";
   companionCount?: string;
   howHeard:

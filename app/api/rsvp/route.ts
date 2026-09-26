@@ -15,8 +15,6 @@ const REQUIRED_FIELDS: (keyof RsvpPayload)[] = [
   "phoneIsWhatsapp",
   "age",
   "isStudent",
-  "courseOfStudy",
-  "institution",
   "comingWithSomeone",
   "howHeard",
   "wantsUpdates",
@@ -83,6 +81,12 @@ export async function POST(req: NextRequest) {
   if (body.level === "Other" && !body.levelOther) {
     return NextResponse.json<RsvpResponse>(
       { ok: false, error: "Missing field: levelOther" },
+      { status: 400 }
+    );
+  }
+  if (body.isStudent === "Yes" && (!body.courseOfStudy || !body.institution)) {
+    return NextResponse.json<RsvpResponse>(
+      { ok: false, error: "Missing field: courseOfStudy or institution" },
       { status: 400 }
     );
   }
