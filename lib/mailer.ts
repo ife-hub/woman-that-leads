@@ -25,10 +25,12 @@ export async function sendInviteEmail(opts: {
 
   // The address itself is fixed to whatever GMAIL_USER is authenticated as
   // (or a verified "Send mail as" alias on that account) — Gmail's SMTP
-  // rejects/rewrites anything else. The display name in front of it is
-  // free to change, either here or via env var.
+  // rejects/rewrites anything else. The display name isn't sensitive, so
+  // it's hardcoded here rather than stored as an env var (a non-secret
+  // value in an env var still trips build-time secret scanners like
+  // Netlify's whenever it appears in plain text elsewhere in the code).
   const fromAddress = process.env.GMAIL_USER;
-  const fromName = process.env.MAIL_FROM_NAME || "Woman That Leads";
+  const fromName = "Woman That Leads";
 
   const logoPath = path.join(process.cwd(), "public", "logo-mark.png");
   const hasLogo = fs.existsSync(logoPath);
