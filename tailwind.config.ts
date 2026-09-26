@@ -5,13 +5,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#0a0908",
-        char: "#161311",
-        smoke: "#4a453f",
-        cream: "#f2ecdd",
-        gold: "#c9a227",
-        "gold-dim": "#8a7231",
-        rust: "#7a3b2e",
+        ink: "#000000",
+        char: "#121212",
+        smoke: "#8a8a8a",
+        cream: "#ffffff",
+        gold: "#e8e8e8",
+        "gold-dim": "#a3a3a3",
+        rust: "#ff5a5a",
       },
       fontFamily: {
         brush: ["var(--font-brush)"],
@@ -19,7 +19,7 @@ const config: Config = {
         body: ["var(--font-body)"],
       },
       backgroundImage: {
-        grain: "radial-gradient(circle at 1px 1px, rgba(242,236,221,0.05) 1px, transparent 0)",
+        grain: "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0)",
       },
     },
   },

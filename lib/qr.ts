@@ -13,16 +13,16 @@ export async function generateCheckInQr(token: string) {
       margin: 1,
       width: 480,
       color: {
-        dark: "#0a0908",
-        light: "#f2ecdd",
+        dark: "#3C1220",
+        light: "#FFFFFF",
       },
     }),
     QRCode.toBuffer(payload, {
       margin: 1,
       width: 480,
       color: {
-        dark: "#0a0908",
-        light: "#f2ecdd",
+        dark: "#3C1220",
+        light: "#FFFFFF",
       },
     }),
   ]);

@@ -20,7 +20,7 @@ const body = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "LET'S GET BUSY — RSVP",
+  title: "WOMAN THAT LEADS",
   description: "July 31st · 10PM · LA — strictly by invite",
 };
 

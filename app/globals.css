@@ -4,8 +4,8 @@
 
 html,
 body {
-  background-color: #0a0908;
-  color: #f2ecdd;
+  background-color: #000000;
+  color: #ffffff;
 }
 
 .grain-overlay {
@@ -19,11 +19,12 @@ body {
 }
 
 .vignette {
-  position: fixed;
+  /* position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 39;
-  background: radial-gradient(ellipse at center, transparent 45%, rgba(0, 0, 0, 0.65) 100%);
+  background: radial-gradient(ellipse at center, transparent 45%, rgba(0, 0, 0, 0.65) 100%); */
+  display: none;
 }
 
 /* Hand-drawn underline beneath field labels, echoing the poster's brush strokes */
@@ -36,8 +37,8 @@ body {
 .field-input {
   background: transparent;
   border: none;
-  border-bottom: 1.5px solid rgba(201, 162, 39, 0.35);
-  color: #f2ecdd;
+  border-bottom: 1.5px solid rgba(232, 232, 232, 0.35);
+  color: #ffffff;
   width: 100%;
   padding: 0.65rem 0.15rem;
   font-family: var(--font-body);
@@ -47,33 +48,33 @@ body {
 }
 
 .field-input:focus {
-  border-color: #c9a227;
+  border-color: #e8e8e8;
 }
 
 .field-input::placeholder {
-  color: rgba(242, 236, 221, 0.28);
+  color: rgba(255, 255, 255, 0.28);
 }
 
 .pill-btn {
-  border: 1.5px solid #c9a227;
-  color: #c9a227;
+  border: 1.5px solid #e8e8e8;
+  color: #e8e8e8;
   background: transparent;
   transition: all 0.2s ease;
 }
 
 .pill-btn:hover {
-  background: #c9a227;
-  color: #0a0908;
+  background: #e8e8e8;
+  color: #000000;
 }
 
 .pill-btn-solid {
-  background: #c9a227;
-  color: #0a0908;
-  border: 1.5px solid #c9a227;
+  background: #ffffff;
+  color: #000000;
+  border: 1.5px solid #ffffff;
 }
 
 .pill-btn-solid:hover {
-  background: #e0bb3a;
+  background: #d9d9d9;
 }
 
 .pill-btn:disabled,
