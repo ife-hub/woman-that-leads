@@ -21,7 +21,7 @@ const body = Inter({
 
 export const metadata: Metadata = {
   title: "WOMAN THAT LEADS",
-  description: "...",
+  description: "A gathering for women building, deciding and leading.",
 };
 
 export default function RootLayout({

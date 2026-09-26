@@ -4,6 +4,7 @@ import { appendRsvpRow } from "@/lib/sheets";
 import { generateCheckInQr } from "@/lib/qr";
 import { sendInviteEmail } from "@/lib/mailer";
 import { isValidEmailFormat, validatePhoneNumber } from "@/lib/validation";
+import { formatLagosTimestamp } from "@/lib/time";
 import type { RsvpPayload, RsvpResponse } from "@/lib/types";
 
 const REQUIRED_FIELDS: (keyof RsvpPayload)[] = [
@@ -115,7 +116,7 @@ export async function POST(req: NextRequest) {
       ...payload,
       phone: normalizedPhone,
       whatsapp: normalizedWhatsapp,
-      submittedAt: new Date().toISOString(),
+      submittedAt: formatLagosTimestamp(new Date()),
       checkInToken,
       checkedIn: false,
     });
