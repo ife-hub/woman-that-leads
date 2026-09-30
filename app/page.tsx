@@ -526,7 +526,7 @@ function Hero({ onStart }: { onStart: () => void }) {
           <h1
             className={`${displayFont} mt-3 text-[26px] font-medium leading-[1.05] text-[#2A2018] sm:text-4xl md:mt-6 md:text-5xl`}
           >
-            Registration
+            Registration 
             <br />
             is <em className="italic text-[#3C1220]">open</em>
           </h1>
