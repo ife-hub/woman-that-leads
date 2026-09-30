@@ -37,6 +37,15 @@ const STEP_TITLES = [
 ];
 
 const TITLE_OPTIONS: RsvpPayload["title"][] = ["Mr.", "Miss", "Mrs."];
+const AGE_OPTIONS: string[] = [
+  "Below 16",
+  "16-20",
+  "21-25",
+  "26-30",
+  "31-35",
+  "36-40",
+  "Above 40",
+];
 const YES_NO: ("Yes" | "No")[] = ["Yes", "No"];
 const LEVEL_OPTIONS: NonNullable<RsvpPayload["level"]>[] = [
   "100 Level",
@@ -279,10 +288,9 @@ export default function Page() {
 
             {step === 3 && (
               <>
-                <TextField
-                  label="Age"
-                  type="number"
-                  placeholder="Your age"
+                <ChoiceField
+                  label="Age range"
+                  options={AGE_OPTIONS}
                   value={form.age}
                   onChange={(v) => update({ age: v })}
                 />
@@ -496,29 +504,46 @@ function BrandPanel({ step }: { step: number }) {
 
 function Hero({ onStart }: { onStart: () => void }) {
   return (
-    <main className={`${fontVars} ${bodyFont} relative flex min-h-screen items-center justify-center overflow-hidden bg-[#FAF6EE] px-6 py-16 text-center`}>
-      <div className="relative z-10 flex max-w-sm flex-col items-center gap-7">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/logo3.png" alt="Woman That Leads" style={{ height: '4rem', width: '7rem' }} />
+    <main
+      className={`${fontVars} ${bodyFont} relative flex h-dvh flex-col items-center justify-center overflow-hidden bg-[#FAF6EE] px-6 py-5 md:px-10`}
+    >
+      <div className="mx-auto flex w-full min-h-0 max-w-4xl flex-1 flex-col items-center justify-center gap-6 text-center md:flex-row md:items-center md:justify-center md:gap-32 md:text-left">
+        {/* Flyer */}
+        <div className="flex min-h-0 shrink-0 items-center justify-center">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/travail-flyer.jpg"
+            alt="Travail — Woman That Leads presents, 28th Nov 2026 at Olabisi Onabanjo University, Ogun State, 10am prompt"
+            className="max-h-[40vh] w-auto rounded-lg object-contain shadow-[0_8px_30px_rgba(60,18,32,0.15)] md:max-h-[75vh]"
+          />
+        </div>
 
-        <h1 className={`${displayFont} text-4xl font-medium leading-[1.05] text-[#2A2018] sm:text-5xl`}>
-          Registration
-          <br />
-          is <em className="italic text-[#3C1220]">open</em>
-        </h1>
-        <span className="h-[2px] w-14 bg-[#C79A4B]" aria-hidden="true" />
+        {/* Copy */}
+        <div className="flex shrink-0 flex-col items-center md:max-w-sm md:items-start">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logo-mark-black.png" alt="Woman That Leads" className="h-auto w-24 sm:w-28 md:w-40" />
 
-        <p className="max-w-[30ch] text-[15px] leading-relaxed text-[#6c6152]">
-          A gathering for women building, deciding and leading. Reserve your seat — it takes a minute.
-        </p>
+          <h1
+            className={`${displayFont} mt-3 text-[26px] font-medium leading-[1.05] text-[#2A2018] sm:text-4xl md:mt-6 md:text-5xl`}
+          >
+            Registration
+            <br />
+            is <em className="italic text-[#3C1220]">open</em>
+          </h1>
+          <span className="mt-2.5 h-[2px] w-14 bg-[#C79A4B] md:mt-4" aria-hidden="true" />
 
-        <button
-          type="button"
-          onClick={onStart}
-          className="mt-3 rounded-full border border-[#3C1220] bg-[#3C1220] px-10 py-3.5 text-sm tracking-wide text-[#E9D6A8] transition-colors hover:bg-[#4E1A2B]"
-        >
-          Register
-        </button>
+          <p className="mt-2.5 max-w-[30ch] text-[13px] leading-relaxed text-[#6c6152] sm:text-[15px] md:mt-4">
+            We are excited to have you join us for an amazing time at She Leads Conference, OOU. Reserve your seat — it only takes a minute
+          </p>
+
+          <button
+            type="button"
+            onClick={onStart}
+            className="mt-4 rounded-full border border-[#3C1220] bg-[#3C1220] px-8 py-2.5 text-sm tracking-wide text-[#E9D6A8] transition-colors hover:bg-[#4E1A2B] md:mt-6 md:px-10 md:py-3.5"
+          >
+            Register
+          </button>
+        </div>
       </div>
     </main>
   );
