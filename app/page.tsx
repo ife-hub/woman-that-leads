@@ -464,7 +464,7 @@ function BrandPanel({ step }: { step: number }) {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/logo.png" alt="Woman That Leads" style={{ height: '5rem', width: '10rem' }} />
         <p className={`${displayFont} max-w-[22ch] text-xl italic leading-[1.35] sm:text-2xl`}>
-          "Leadership isn't a title <span className="text-[#E9D6A8]">— it's the room you choose to build.</span>"
+          "We look forward to receiving you at <span className="text-[#E9D6A8]">SLC OOU</span>. It’s a date!"
         </p>
       </div>
 
