@@ -512,7 +512,7 @@ function Hero({ onStart }: { onStart: () => void }) {
         <div className="flex min-h-0 shrink-0 items-center justify-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/travail-flyer.jpg"
+            src="/travail-flyer.png"
             alt="Travail — Woman That Leads presents, 28th Nov 2026 at Olabisi Onabanjo University, Ogun State, 10am prompt"
             className="max-h-[40vh] w-auto rounded-lg object-contain shadow-[0_8px_30px_rgba(60,18,32,0.15)] md:max-h-[75vh]"
           />
